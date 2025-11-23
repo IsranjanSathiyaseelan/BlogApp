@@ -1,0 +1,2 @@
+# BlogApp
+Personal Blog Platform
