@@ -21,6 +21,7 @@ Travel Tips:
 Don’t forget to enjoy local Balinese cuisine like Nasi Goreng and Babi Guling.`,
     author: "Alice Traveler",
     date: "2025-01-12",
+    category: "Travel",
   },
   {
     id: 2,
@@ -44,6 +45,7 @@ Travel Tips:
 Paris is best explored by walking its charming streets and enjoying the café culture.`,
     author: "Jean Dupont",
     date: "2025-01-15",
+    category: "Travel",
   },
   {
     id: 3,
@@ -68,6 +70,7 @@ Travel Tips:
 Enjoy panoramic views, fresh mountain air, and cozy alpine cuisine along the way.`,
     author: "Liam Mountain",
     date: "2025-01-18",
+    category: "Adventure",
   },
   {
     id: 4,
@@ -91,6 +94,7 @@ Travel Tips:
 Kyoto offers a perfect blend of tradition, tranquility, and exquisite Japanese cuisine.`,
     author: "Sakura Tanaka",
     date: "2025-01-20",
+    category: "Culture",
   },
   {
     id: 5,
@@ -116,6 +120,7 @@ Travel Tips:
 Enjoy the freedom of the open road and the breathtaking California coastline.`,
     author: "Chris Roadster",
     date: "2025-01-22",
+    category: "Travel",
   },
   {
     id: 6,
@@ -140,6 +145,7 @@ Travel Tips:
 From dramatic landscapes to unique wildlife, Iceland offers a once-in-a-lifetime experience.`,
     author: "Olivia Frost",
     date: "2025-01-25",
+    category: "Adventure",
   }
 ];
 
