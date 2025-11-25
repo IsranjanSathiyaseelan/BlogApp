@@ -25,7 +25,7 @@ Don’t forget to enjoy local Balinese cuisine like Nasi Goreng and Babi Guling.
   {
     id: 2,
     title: "A Weekend in Paris: Must-See Attractions",
-    image: "/images/paris-city.avif",
+    image: "/images/photo.jpg.avif",
     description:
       "Paris, the city of love, is filled with historic landmarks, art, and amazing cuisine. Here's how to make the most of a short visit...",
     content: `Paris has something for every traveler—from art lovers to food enthusiasts.
@@ -48,7 +48,7 @@ Paris is best explored by walking its charming streets and enjoying the café cu
   {
     id: 3,
     title: "Hiking the Swiss Alps: An Adventure Guide",
-    image: "/images/swiss-alps.avif",
+    image: "/images/photo.jpg.avif",
     description:
       "The Swiss Alps are perfect for hikers and nature lovers. Experience stunning mountain trails, scenic villages, and alpine lakes...",
     content: `Hiking in the Swiss Alps is an unforgettable experience.
@@ -72,7 +72,7 @@ Enjoy panoramic views, fresh mountain air, and cozy alpine cuisine along the way
   {
     id: 4,
     title: "Discovering Kyoto’s Ancient Temples",
-    image: "/images/kyoto-temple.avif",
+    image: "/images/photo.jpg.avif",
     description:
       "Kyoto, Japan’s cultural heart, is home to historic temples, beautiful gardens, and traditional tea houses...",
     content: `Kyoto is perfect for those seeking history and serenity.
@@ -95,7 +95,7 @@ Kyoto offers a perfect blend of tradition, tranquility, and exquisite Japanese c
   {
     id: 5,
     title: "Road Trip Along California’s Pacific Coast Highway",
-    image: "/images/pch-roadtrip.avif",
+    image: "/images/photo.jpg.avif",
     description:
       "Drive along one of the most scenic coastal roads in the world, enjoying ocean views, charming towns, and iconic landmarks...",
     content: `The Pacific Coast Highway (PCH) is a dream road trip.
@@ -120,7 +120,7 @@ Enjoy the freedom of the open road and the breathtaking California coastline.`,
   {
     id: 6,
     title: "Exploring the Wonders of Iceland",
-    image: "/images/iceland-landscape.avif",
+    image: "/images/photo.jpg.avif",
     description:
       "Iceland is a land of waterfalls, glaciers, geysers, and volcanic landscapes. Learn the top spots and travel tips for adventure seekers...",
     content: `Iceland is a paradise for nature enthusiasts.
