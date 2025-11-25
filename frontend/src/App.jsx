@@ -12,15 +12,15 @@ import Register from "./pages/Register";
 import BlogDetails from "./pages/BlogDetails";
 import EditBlog from "./components/EditBlog";
 import NotFound from "./components/NotFound";
+import CreateBlog from "./components/CreateBlog";
 
 import { useEffect, useState } from "react";
 import axios from "axios";
 
 function App() {
   const [user, setUser] = useState(null);
-  const [error, setError] = useState("");
-  const [isLoading, setIsLoading] = useState(true);
 
+  // Fetch user on app load
   useEffect(() => {
     const fetchUser = async () => {
       const token = localStorage.getItem("token");
@@ -29,55 +29,31 @@ function App() {
           const res = await axios.get("/api/users/me", {
             headers: { Authorization: `Bearer ${token}` },
           });
-          setUser(res.data);
+          setUser(res.data.user || res.data);
         } catch (err) {
-          setError("Failed to fetch user data");
+          console.error("Failed to fetch user:", err);
           localStorage.removeItem("token");
+          setUser(null);
         }
       }
-      setIsLoading(false);
     };
     fetchUser();
   }, []);
 
   return (
-    <>
-      {isLoading ? (
-        <div className="min-h-screen bg-gray-900 flex items-center justify-center">
-          <div className="text-xl text-white">Loading...</div>
-        </div>
-      ) : (
-        <Router>
-          <Navbar user={user} setUser={setUser} />
-          <Routes>
-            <Route path="/" element={<Home />} />
+    <Router>
+      <Navbar user={user} setUser={setUser} />
 
-            {/* Blog Details Page */}
-            <Route path="/blog/:id" element={<BlogDetails />} />
-
-            {/* Edit Blog Page (Protected) */}
-            <Route
-              path="/edit/:id"
-              element={user ? <EditBlog /> : <Navigate to="/login" />}
-            />
-
-            <Route
-              path="/login"
-              element={user ? <Navigate to="/" /> : <Login setUser={setUser} />}
-            />
-
-            <Route
-              path="/register"
-              element={
-                user ? <Navigate to="/" /> : <Register setUser={setUser} />
-              }
-            />
-
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </Router>
-      )}
-    </>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/blog/:id" element={<BlogDetails />} />
+        <Route path="/create" element={user ? <CreateBlog /> : <Navigate to="/login" />} />
+        <Route path="/edit/:id" element={user ? <EditBlog /> : <Navigate to="/login" />} />
+        <Route path="/login" element={user ? <Navigate to="/" /> : <Login setUser={setUser} />} />
+        <Route path="/register" element={user ? <Navigate to="/" /> : <Register setUser={setUser} />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </Router>
   );
 }
 

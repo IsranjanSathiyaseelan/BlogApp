@@ -1,6 +1,7 @@
-import axios from "axios";
+// Login.jsx
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const Login = ({ setUser }) => {
   const [formData, setFormData] = useState({
@@ -16,12 +17,29 @@ const Login = ({ setUser }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError("");
+
     try {
-      const res = await axios.post("/api/users/login", formData);
+      const res = await axios.post(
+        "http://localhost:5000/api/user/login",
+        formData
+      );
+
+      // Check if login succeeded
+      if (!res.data.success) {
+        setError(res.data.message || "Login failed");
+        return;
+      }
+
+      // Save token to localStorage
       localStorage.setItem("token", res.data.token);
-      console.log(res.data);
-      setUser(res.data);
-      navigate("/");
+
+      // Update user state
+      setUser(res.data.user);
+
+      // Force full page reload so Navbar shows user
+      window.location.href = "/";
+
     } catch (err) {
       setError(err.response?.data?.message || "Login failed");
     }
@@ -33,8 +51,11 @@ const Login = ({ setUser }) => {
         <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">
           Login
         </h2>
+
         {error && <p className="text-red-500 mb-4 text-sm">{error}</p>}
+
         <form onSubmit={handleSubmit}>
+          {/* Email */}
           <div className="mb-4">
             <label className="block text-gray-600 text-sm font-medium mb-1">
               Email
@@ -50,6 +71,8 @@ const Login = ({ setUser }) => {
               required
             />
           </div>
+
+          {/* Password */}
           <div className="mb-6">
             <label className="block text-gray-600 text-sm font-medium mb-1">
               Password
@@ -64,6 +87,7 @@ const Login = ({ setUser }) => {
               required
             />
           </div>
+
           <button className="w-full bg-gray-600 text-white p-3 rounded-md hover:bg-gray-800 font-medium cursor-pointer">
             Login
           </button>
